@@ -95,7 +95,7 @@ def transcribe(
             if verbose is not None:
                 print(f"Detected language: {LANGUAGES[decode_options['language']].title()}")
 
-    print('Debugging')
+    decode_options["concat_lang_token"] = "ur-en"
     language = decode_options["language"]
     task = decode_options.get("task", "transcribe")
     tokenizer = get_tokenizer(model.is_multilingual, language=language, task=task)
